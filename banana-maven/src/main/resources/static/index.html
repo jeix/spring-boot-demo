@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+<p><a href="/hello">Greeting</a></p>
+
+<form action="/hello" method="GET" id="nameForm">
+    <div>
+        <label for="nameInput">Input Name</label>
+        <input name="name" id="nameInput">
+        <button>Greeting with name</button>
+    </div>
+</form>
+
+<form action="/add" method="POST">
+    <p>Let's add a customer.</p>
+
+    <div>
+        <label for="firstName">First name:</label>
+        <input name="first" id="firstName" value="Homer">
+    </div>
+    <div>
+        <label for="lastName">Last name:</label>
+        <input name="last" id="lastName" value="Simpson">
+    </div>
+    <div>
+        <button>Add customer</button>
+    </div>
+</form>
+
+<form action="/list" method="GET">
+    <button>List customers</button>
+</form>
+</body>
+</html>
