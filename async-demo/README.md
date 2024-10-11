@@ -1,7 +1,7 @@
 # async-demo
 
 ```
-2024-10-11T16:15:04.300+09:00  INFO 14949 --- [async-demo] [           main] org.simple.demo.Application              : Starting Application using Java 17.0.12 with PID 14949 (/home/jay/_doc/spike/java-framework/spring-boot/playground/async-demo/build/classes/java/main started by jay in /home/jay/_doc/spike/java-framework/spring-boot/playground/async-demo)
+2024-10-11T16:15:04.300+09:00  INFO 14949 --- [async-demo] [           main] org.simple.demo.Application              : Starting Application using Java 17.0.12 with PID 14949 (...)
 2024-10-11T16:15:04.304+09:00  INFO 14949 --- [async-demo] [           main] org.simple.demo.Application              : No active profile set, falling back to 1 default profile: "default"
 2024-10-11T16:15:05.115+09:00  INFO 14949 --- [async-demo] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
 2024-10-11T16:15:05.126+09:00  INFO 14949 --- [async-demo] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]

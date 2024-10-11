@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: command-line-runner
+
+logging.level.root: info
