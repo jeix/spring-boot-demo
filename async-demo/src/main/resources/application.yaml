@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: async-demo
+
+logging.level.root: info
