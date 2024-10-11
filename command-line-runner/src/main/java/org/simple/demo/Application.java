@@ -23,15 +23,17 @@ public class Application implements CommandLineRunner {
 	}
 
 	@Bean
-	public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
+	public CommandLineRunner commandLineRunner(/*ApplicationContext ctx*/) {
 		return args -> {
 			log.info("Bean CommandLineRunner");
+			/*
 			log.info("inspect the beans");
 			String[] beanNames = ctx.getBeanDefinitionNames();
 			Arrays.sort(beanNames);
 			for (String beanName : beanNames) {
 				log.info(beanName);
 			}
+			//*/
 		};
 	}
 }
