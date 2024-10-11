@@ -1,5 +1,7 @@
 # async-demo
 
+### `@Async` or `@Scheduled`
+
 ```
 2024-10-11T16:15:04.300+09:00  INFO 14949 --- [async-demo] [           main] org.simple.demo.Application              : Starting Application using Java 17.0.12 with PID 14949 (...)
 2024-10-11T16:15:04.304+09:00  INFO 14949 --- [async-demo] [           main] org.simple.demo.Application              : No active profile set, falling back to 1 default profile: "default"
@@ -34,3 +36,41 @@
 2024-10-11T16:15:35.591+09:00  INFO 14949 --- [async-demo] [         task-3] org.simple.demo.PlayWorkService          : scheduled called
 2024-10-11T16:15:38.591+09:00  INFO 14949 --- [async-demo] [         task-2] org.simple.demo.VinylWorkService         : async finished
 ```
+
+### `@Async` and `CompletableFuture`
+
+- `curl localhost:8080/async`
+  ```
+  2024-10-11T19:45:51.909+09:00  INFO 27937 --- [async-demo] [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+  2024-10-11T19:45:51.910+09:00  INFO 27937 --- [async-demo] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+  2024-10-11T19:45:51.912+09:00  INFO 27937 --- [async-demo] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+  
+  2024-10-11T19:45:51.950+09:00  INFO 27937 --- [async-demo] [nio-8080-exec-1] org.simple.demo.PlayWorkService          : requested calling
+  2024-10-11T19:45:51.954+09:00  INFO 27937 --- [async-demo] [nio-8080-exec-1] o.simple.demo.RootContextConfiguration   : Configuring asynchronous method executor org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler@4d3ca6c7.
+  2024-10-11T19:45:51.956+09:00  INFO 27937 --- [async-demo] [nio-8080-exec-1] org.simple.demo.PlayWorkService          : requested called
+  2024-10-11T19:45:51.956+09:00  INFO 27937 --- [async-demo] [         task-1] org.simple.demo.VinylWorkService         : async started with Requested
+  2024-10-11T19:45:54.957+09:00  INFO 27937 --- [async-demo] [         task-1] org.simple.demo.VinylWorkService         : async finished
+  ```
+
+- `curl localhost:8080/async2`
+  ```
+  2024-10-11T19:46:18.850+09:00  INFO 27937 --- [async-demo] [nio-8080-exec-2] org.simple.demo.PlayWorkService          : requested calling
+  2024-10-11T19:46:18.857+09:00  INFO 27937 --- [async-demo] [         task-1] org.simple.demo.VinylWorkService         : async started with Requested
+  2024-10-11T19:46:18.857+09:00  INFO 27937 --- [async-demo] [nio-8080-exec-2] org.simple.demo.PlayWorkService          : requested called
+  2024-10-11T19:46:21.859+09:00  INFO 27937 --- [async-demo] [nio-8080-exec-2] org.simple.demo.PlayWorkService          : requested
+  ```
+
+- `curl localhost:8080/async3`
+  ```
+  2024-10-11T19:46:37.083+09:00  INFO 27937 --- [async-demo] [nio-8080-exec-3] org.simple.demo.PlayWorkService          : requested calling
+  2024-10-11T19:46:37.087+09:00  INFO 27937 --- [async-demo] [         task-2] org.simple.demo.VinylWorkService         : async started with Requested0
+  2024-10-11T19:46:37.087+09:00  INFO 27937 --- [async-demo] [         task-1] org.simple.demo.VinylWorkService         : async started with Requested2
+  2024-10-11T19:46:37.087+09:00  INFO 27937 --- [async-demo] [         task-3] org.simple.demo.VinylWorkService         : async started with Requested1
+  2024-10-11T19:46:37.089+09:00  INFO 27937 --- [async-demo] [nio-8080-exec-3] org.simple.demo.PlayWorkService          : requested called
+  2024-10-11T19:46:40.089+09:00  INFO 27937 --- [async-demo] [         task-2] org.simple.demo.PlayWorkService          : requested0
+  2024-10-11T19:46:40.089+09:00  INFO 27937 --- [async-demo] [         task-1] org.simple.demo.PlayWorkService          : requested2
+  2024-10-11T19:46:40.089+09:00  INFO 27937 --- [async-demo] [         task-3] org.simple.demo.PlayWorkService          : requested1
+  2024-10-11T19:46:40.089+09:00  INFO 27937 --- [async-demo] [nio-8080-exec-3] org.simple.demo.PlayWorkService          : DONE
+  ```
+
+:wq

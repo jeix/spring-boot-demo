@@ -21,4 +21,12 @@ public class HelloController {
     public String async() {
         return playService.doit();
     }
+    @GetMapping("/async2")
+    public String async2() {
+        return playService.doit2();
+    }
+    @GetMapping("/async3")
+    public String async3() {
+        return playService.doit3();
+    }
 }
