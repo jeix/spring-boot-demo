@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: multi-module-demo
+
+logging.level.root: info

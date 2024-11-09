@@ -1,0 +1,1 @@
+./mbnw install
