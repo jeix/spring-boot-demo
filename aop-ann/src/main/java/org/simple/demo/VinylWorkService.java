@@ -13,7 +13,7 @@ public class VinylWorkService implements VinylService {
         //if ("고구마".equals(req.subject())) throw new IllegalArgumentException();
         return ResponseDto.builder()
                 .subject(req.subject())
-                .message(req.subject())
+                .message(req.message())
                 .build();
     }
 }
