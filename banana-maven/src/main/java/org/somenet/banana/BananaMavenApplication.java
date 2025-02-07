@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class BananaMavenApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(BananaMavenApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(BananaMavenApplication.class, args);
+    }
 
-	@GetMapping("/hello")
-	@ResponseBody
-	public String hello(@RequestParam(value = "name", defaultValue = "World") String name) {
-		return String.format("Hello %s!", name);
-	}
+    @GetMapping("/hello")
+    @ResponseBody
+    public String hello(@RequestParam(value = "name", defaultValue = "World") String name) {
+        return String.format("Hello %s!", name);
+    }
 }

@@ -14,44 +14,44 @@ import org.springframework.stereotype.Service;
 
 @Builder
 public record FooBar(
-	String foo,
-	Integer bar,
-	List<String> qux
+    String foo,
+    Integer bar,
+    List<String> qux
 ) {
 
-	public static FooBar getInstance() {
-		FooBarConfigProperties properties = FooBarBeanUtil.getBean(FooBarConfigProperties.class);
-		return FooBar.builder()
-				.foo(properties.getFoo())
+    public static FooBar getInstance() {
+        FooBarConfigProperties properties = FooBarBeanUtil.getBean(FooBarConfigProperties.class);
+        return FooBar.builder()
+                .foo(properties.getFoo())
                 .bar(properties.getBar())
-				//.qux(List.of(properties.getQux()))
-				.qux(properties.getQux())
+                //.qux(List.of(properties.getQux()))
+                .qux(properties.getQux())
                 .build();
-	}
+    }
 
-	@Component
-	@ConfigurationProperties(prefix = "vinyl.foobar")
-	@Getter
-	@Setter
-	private static class FooBarConfigProperties {
-		private String foo;
-		private Integer bar;
-		//private String[] qux;
-		private List<String> qux;
-	}
+    @Component
+    @ConfigurationProperties(prefix = "vinyl.foobar")
+    @Getter
+    @Setter
+    private static class FooBarConfigProperties {
+        private String foo;
+        private Integer bar;
+        //private String[] qux;
+        private List<String> qux;
+    }
 
-	@Service
-	private static class FooBarBeanUtil implements ApplicationContextAware {
+    @Service
+    private static class FooBarBeanUtil implements ApplicationContextAware {
 
-		private static ApplicationContext context;
+        private static ApplicationContext context;
 
-		@Override
-		public void setApplicationContext(ApplicationContext applicationContext) {
-			context = applicationContext;
-		}
+        @Override
+        public void setApplicationContext(ApplicationContext applicationContext) {
+            context = applicationContext;
+        }
 
-		static <T> T getBean(Class<T> klass) {
-			return context.getBean(klass);
-		}
-	}
+        static <T> T getBean(Class<T> klass) {
+            return context.getBean(klass);
+        }
+    }
 }

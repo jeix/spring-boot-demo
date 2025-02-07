@@ -14,29 +14,29 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class VinylWorkService implements VinylService {
 
-	@Value("${vinyl.foobar.foo:hello}")
-	private String foo;
-	@Value("${vinyl.foobar.bar:0}")
-	private Integer bar;
+    @Value("${vinyl.foobar.foo:hello}")
+    private String foo;
+    @Value("${vinyl.foobar.bar:0}")
+    private Integer bar;
 
     @Override
     public List<ResponseDto> doit(RequestDto req) {
         
-		return new ArrayList<>() {{
-				add(
-					ResponseDto.builder()
-						.foo(foo)
-						.bar(bar)
-						.build()
-				);
-				FooBar foobar = FooBar.getInstance();
-				add(
-					ResponseDto.builder()
-						.foo(foobar.foo())
-						.bar(foobar.bar())
-						.qux(foobar.qux())
-						.build()
-				);
-		}};
+        return new ArrayList<>() {{
+                add(
+                    ResponseDto.builder()
+                        .foo(foo)
+                        .bar(bar)
+                        .build()
+                );
+                FooBar foobar = FooBar.getInstance();
+                add(
+                    ResponseDto.builder()
+                        .foo(foobar.foo())
+                        .bar(foobar.bar())
+                        .qux(foobar.qux())
+                        .build()
+                );
+        }};
     }
 }

@@ -13,27 +13,27 @@ import java.util.Arrays;
 @Slf4j
 public class Application implements CommandLineRunner {
 
-	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(Application.class, args);
+    }
 
-	@Override
-	public void run(String... args) throws Exception {
-		log.info("Application as CommandLineRunner");
-	}
+    @Override
+    public void run(String... args) throws Exception {
+        log.info("Application as CommandLineRunner");
+    }
 
-	@Bean
-	public CommandLineRunner commandLineRunner(/*ApplicationContext ctx*/) {
-		return args -> {
-			log.info("Bean CommandLineRunner");
-			/*
-			log.info("inspect the beans");
-			String[] beanNames = ctx.getBeanDefinitionNames();
-			Arrays.sort(beanNames);
-			for (String beanName : beanNames) {
-				log.info(beanName);
-			}
-			//*/
-		};
-	}
+    @Bean
+    public CommandLineRunner commandLineRunner(/*ApplicationContext ctx*/) {
+        return args -> {
+            log.info("Bean CommandLineRunner");
+            /*
+            log.info("inspect the beans");
+            String[] beanNames = ctx.getBeanDefinitionNames();
+            Arrays.sort(beanNames);
+            for (String beanName : beanNames) {
+                log.info(beanName);
+            }
+            //*/
+        };
+    }
 }

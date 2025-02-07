@@ -13,7 +13,7 @@ import org.simple.demo.library.EvenOddService;
 @Slf4j
 public class HelloController {
 
-	private EvenOddService evenOddService;
+    private EvenOddService evenOddService;
 
     @GetMapping("/")
     public String root() {
@@ -21,7 +21,7 @@ public class HelloController {
     }
 
     @GetMapping("/check/{number}")
-	public String isEvenOrOdd(@PathVariable Integer number) {
+    public String isEvenOrOdd(@PathVariable Integer number) {
         return evenOddService.isEvenOrOdd(number);
     }
 }
