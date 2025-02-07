@@ -8,6 +8,6 @@ import lombok.Builder;
 public record ResponseDto(
         String foo,
         Integer bar,
-		List<String> qux
+        List<String> qux
 ) {
 }
